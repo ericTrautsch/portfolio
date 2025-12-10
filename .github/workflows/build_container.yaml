@@ -3,6 +3,7 @@ name: Create and publish a Docker image
 
 # Configures this workflow to run every time a new tag starting with v is created
 on:
+  push:
   tags:
     - "v*"
 
