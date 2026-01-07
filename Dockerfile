@@ -1,6 +1,30 @@
-FROM golang@sha256:f123f64ef1f320e60a1d238d7b04f2f8b8ad5566cb35ecca5dc563447ebb300e
+FROM golang:1.23-alpine AS builder
 
-COPY go.mod .
-COPY main.go .
+WORKDIR /app
 
-CMD ["go", "run", "main.go"]
+# Install templ
+RUN go install github.com/a-h/templ/cmd/templ@latest
+
+# Copy go mod files first for caching
+COPY go.mod go.sum ./
+RUN go mod download
+
+# Copy source files
+COPY *.go ./
+COPY *.templ ./
+
+# Generate templ files and build
+RUN templ generate
+RUN CGO_ENABLED=0 GOOS=linux go build -o portfolio .
+
+# Final stage
+FROM alpine:latest
+
+WORKDIR /app
+
+COPY --from=builder /app/portfolio .
+COPY config.yaml .
+
+EXPOSE 8080
+
+CMD ["./portfolio"]

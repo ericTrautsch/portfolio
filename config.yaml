@@ -1,0 +1,69 @@
+personal:
+  name: Eric Trautsch
+  title: Software Engineer
+  tagline: Building reliable AI systems and infrastructure
+  email: erictrautsch@outlook.com
+  linkedin: www.linkedin.com/in/eric-trautsch
+  github: github.com/ericTrautsch
+  site: erictrautsch.dev
+  phone: 563-379-7506
+  location: Minneapolis, MN
+
+projects:
+  - name: "Production Reliability Enhancements"
+    skills: "PagerDuty, Monitoring, Incident Management"
+    date: Summer 2025
+    points:
+      - Modernized production monitoring by migrating to PagerDuty, accelerating alerting, eliminating missed incidents, and improving customer-perceived reliability.
+      - Built auto-clearing monitoring windows and authored on-call runbooks, reducing incident management overhead by 3 hours per day and significantly lowering operational burden.
+      - Implemented input splitting and recombination at scale, unlocking new billing opportunities and expanding supported data/document sizes.
+
+  - name: "Generative AI Deployment - Visible Thread Writer"
+    skills: "AWS, CloudFormation, LLM Infrastructure"
+    date: Fall 2024
+    points:
+      - Designed and automated infrastructure for deploying Large Language Models (LLMs) in customer environments using CloudFormation, ensuring scalability, security, and high availability.
+      - Enabled more than $1M/year in value by ensuring seamless deployment and operationalization of LLMs, directly benefiting internal applications.
+
+experience:
+  - role: AI Software Engineer
+    name: Precedent
+    location: Remote
+    date: March 2025 — Present
+    points:
+      - Spearheaded design and development of core features, including medical imaging extraction and concurrent processing without service degradation or excessive complexity.
+      - Improved engineering experience and system stability through automation, testing frameworks, and purpose-built operational utilities.
+      - Led a large-scale Python runtime migration and managed Terraform-based infrastructure and build architecture, ensuring compatibility, reliability, and early completion across multiple services.
+
+  - role: AI Operations Engineer
+    name: Collins Aerospace
+    location: Cedar Rapids, IA
+    date: May 2023 — March 2025
+    points:
+      - Architected, designed, and continuously improved CI/CD pipelines and SDLC practices using GitHub Enterprise, Sonatype Nexus, Jenkins, and MLflow, accelerating and stabilizing deployments production services and hosted generative AI models.
+      - Optimized cloud resource utilization, achieving 15% monthly cost reduction (~$144K annually).
+
+  - role: Software Engineering Intern
+    name: Collins Aerospace
+    location: Cedar Rapids, IA
+    date: May 2020 — May 2023
+    points:
+      - Led the creation of automated factory-floor reporting, delivering time savings and quality improvements that saved $100K over five years.
+
+education:
+  - name: University of Iowa
+    degree: M.S. in Data Science
+    location: Iowa City, IA
+    date: Fall 2024
+  - name: University of Iowa
+    degree: B.S.E. in Computer Science & Engineering with Minor in Statistics
+    location: Iowa City, IA
+    date: Spring 2023
+
+skills:
+  - category: Languages
+    skills: Python, Bash, Go
+  - category: Developer Tools
+    skills: Docker, CI/CD, Terraform, CloudFormation, AWS, Linux
+  - category: Soft Skills
+    skills: Communication, Mentorship, Problem Solving
