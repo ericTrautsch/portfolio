@@ -1,4 +1,4 @@
-FROM golang:1.23-alpine AS builder
+FROM golang:1.25-alpine AS builder
 
 WORKDIR /app
 
@@ -24,6 +24,7 @@ WORKDIR /app
 
 COPY --from=builder /app/portfolio .
 COPY config.yaml .
+COPY favicon.ico .
 
 EXPOSE 8080
 
