@@ -1,0 +1,380 @@
+package main
+
+import "fmt"
+
+templ styles() {
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+			line-height: 1.6;
+			color: #333;
+			background: #f8f9fa;
+		}
+
+		.container {
+			max-width: 900px;
+			margin: 0 auto;
+			padding: 2rem;
+		}
+
+		header {
+			text-align: center;
+			padding: 3rem 0;
+			background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+			color: white;
+			margin-bottom: 2rem;
+		}
+
+		header h1 {
+			font-size: 2.5rem;
+			margin-bottom: 0.5rem;
+			font-weight: 700;
+		}
+
+		header .title {
+			font-size: 1.25rem;
+			color: #a0aec0;
+			margin-bottom: 0.5rem;
+		}
+
+		header .tagline {
+			font-size: 1rem;
+			color: #718096;
+			font-style: italic;
+		}
+
+		.contact-bar {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 1rem;
+			margin-top: 1.5rem;
+			font-size: 0.9rem;
+		}
+
+		.contact-bar a {
+			color: #63b3ed;
+			text-decoration: none;
+			transition: color 0.2s;
+		}
+
+		.contact-bar a:hover {
+			color: #90cdf4;
+		}
+
+		.contact-bar span {
+			color: #a0aec0;
+		}
+
+		section {
+			background: white;
+			border-radius: 8px;
+			padding: 1.5rem 2rem;
+			margin-bottom: 1.5rem;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+		}
+
+		section h2 {
+			font-size: 1.25rem;
+			color: #1a1a2e;
+			border-bottom: 2px solid #e2e8f0;
+			padding-bottom: 0.5rem;
+			margin-bottom: 1rem;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
+
+		.item {
+			margin-bottom: 1.5rem;
+		}
+
+		.item:last-child {
+			margin-bottom: 0;
+		}
+
+		.item-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: baseline;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+
+		.item-title {
+			font-weight: 600;
+			font-size: 1.1rem;
+			color: #2d3748;
+		}
+
+		.item-subtitle {
+			color: #4a5568;
+			font-size: 0.95rem;
+		}
+
+		.item-meta {
+			color: #718096;
+			font-size: 0.85rem;
+		}
+
+		.item-skills {
+			color: #667eea;
+			font-size: 0.85rem;
+			margin-top: 0.25rem;
+		}
+
+		.item ul {
+			margin-top: 0.5rem;
+			padding-left: 1.25rem;
+		}
+
+		.item li {
+			margin-bottom: 0.25rem;
+			color: #4a5568;
+			font-size: 0.95rem;
+		}
+
+		.skills-grid {
+			display: grid;
+			gap: 1rem;
+		}
+
+		.skill-group {
+			display: flex;
+			gap: 0.75rem;
+			align-items: baseline;
+		}
+
+		.skill-category {
+			font-weight: 600;
+			color: #2d3748;
+			min-width: 120px;
+		}
+
+		.skill-list {
+			color: #4a5568;
+		}
+
+		.education-item {
+			display: flex;
+			justify-content: space-between;
+			align-items: baseline;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+			margin-bottom: 0.75rem;
+		}
+
+		.education-item:last-child {
+			margin-bottom: 0;
+		}
+
+		.edu-info {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.edu-degree {
+			font-weight: 600;
+			color: #2d3748;
+		}
+
+		.edu-school {
+			color: #4a5568;
+			font-size: 0.95rem;
+		}
+
+		.edu-meta {
+			text-align: right;
+			color: #718096;
+			font-size: 0.85rem;
+		}
+
+		footer {
+			text-align: center;
+			padding: 2rem;
+			color: #718096;
+			font-size: 0.85rem;
+		}
+
+		@media (max-width: 600px) {
+			.container {
+				padding: 1rem;
+			}
+
+			header {
+				padding: 2rem 1rem;
+			}
+
+			header h1 {
+				font-size: 2rem;
+			}
+
+			section {
+				padding: 1rem 1.25rem;
+			}
+
+			.item-header {
+				flex-direction: column;
+			}
+
+			.education-item {
+				flex-direction: column;
+			}
+
+			.edu-meta {
+				text-align: left;
+			}
+
+			.skill-group {
+				flex-direction: column;
+				gap: 0.25rem;
+			}
+		}
+	</style>
+}
+
+templ portfolioPage(config *Config) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+			<title>{ config.Personal.Name } - { config.Personal.Title }</title>
+			<meta name="description" content={ fmt.Sprintf("%s - %s", config.Personal.Name, config.Personal.Tagline) }/>
+			@styles()
+		</head>
+		<body>
+			<header>
+				<div class="container">
+					<h1>{ config.Personal.Name }</h1>
+					<div class="title">{ config.Personal.Title }</div>
+					if config.Personal.Tagline != "" {
+						<div class="tagline">{ config.Personal.Tagline }</div>
+					}
+					<div class="contact-bar">
+						if config.Personal.Email != "" {
+							<a href={ templ.SafeURL("mailto:" + config.Personal.Email) }>{ config.Personal.Email }</a>
+						}
+						if config.Personal.Phone != "" {
+							<span>{ config.Personal.Phone }</span>
+						}
+						if config.Personal.Location != "" {
+							<span>{ config.Personal.Location }</span>
+						}
+						if config.Personal.LinkedIn != "" {
+							<a href={ templ.SafeURL("https://" + config.Personal.LinkedIn) } target="_blank">LinkedIn</a>
+						}
+						if config.Personal.GitHub != "" {
+							<a href={ templ.SafeURL("https://" + config.Personal.GitHub) } target="_blank">GitHub</a>
+						}
+					</div>
+				</div>
+			</header>
+			<main class="container">
+				if len(config.Experience) > 0 {
+					@experienceSection(config.Experience)
+				}
+				if len(config.Projects) > 0 {
+					@projectsSection(config.Projects)
+				}
+				if len(config.Education) > 0 {
+					@educationSection(config.Education)
+				}
+				if len(config.Skills) > 0 {
+					@skillsSection(config.Skills)
+				}
+			</main>
+			<footer>
+				<div class="container">
+					&copy; { config.Personal.Name }
+				</div>
+			</footer>
+		</body>
+	</html>
+}
+
+templ skillsSection(skills []SkillGroup) {
+	<section>
+		<h2>Skills</h2>
+		<div class="skills-grid">
+			for _, group := range skills {
+				<div class="skill-group">
+					<span class="skill-category">{ group.Category }:</span>
+					<span class="skill-list">{ group.Skills }</span>
+				</div>
+			}
+		</div>
+	</section>
+}
+
+templ experienceSection(experiences []Experience) {
+	<section>
+		<h2>Experience</h2>
+		for _, exp := range experiences {
+			<div class="item">
+				<div class="item-header">
+					<div>
+						<span class="item-title">{ exp.Role }</span>
+						<span class="item-subtitle"> at { exp.Name }</span>
+					</div>
+					<div class="item-meta">{ exp.Location } | { exp.Date }</div>
+				</div>
+				if len(exp.Points) > 0 {
+					<ul>
+						for _, point := range exp.Points {
+							<li>{ point }</li>
+						}
+					</ul>
+				}
+			</div>
+		}
+	</section>
+}
+
+templ projectsSection(projects []Project) {
+	<section>
+		<h2>Projects</h2>
+		for _, proj := range projects {
+			<div class="item">
+				<div class="item-header">
+					<span class="item-title">{ proj.Name }</span>
+					<span class="item-meta">{ proj.Date }</span>
+				</div>
+				if proj.Skills != "" {
+					<div class="item-skills">{ proj.Skills }</div>
+				}
+				if len(proj.Points) > 0 {
+					<ul>
+						for _, point := range proj.Points {
+							<li>{ point }</li>
+						}
+					</ul>
+				}
+			</div>
+		}
+	</section>
+}
+
+templ educationSection(education []Education) {
+	<section>
+		<h2>Education</h2>
+		for _, edu := range education {
+			<div class="education-item">
+				<div class="edu-info">
+					<span class="edu-degree">{ edu.Degree }</span>
+					<span class="edu-school">{ edu.Name }</span>
+				</div>
+				<div class="edu-meta">
+					{ edu.Location }<br/>
+					{ edu.Date }
+				</div>
+			</div>
+		}
+	</section>
+}
