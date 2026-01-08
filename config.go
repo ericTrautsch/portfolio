@@ -22,7 +22,6 @@ type Personal struct {
 	LinkedIn string `yaml:"linkedin"`
 	GitHub   string `yaml:"github"`
 	Site     string `yaml:"site"`
-	Phone    string `yaml:"phone"`
 	Location string `yaml:"location"`
 }
 
