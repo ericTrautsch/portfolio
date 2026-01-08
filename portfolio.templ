@@ -261,9 +261,6 @@ templ portfolioPage(config *Config) {
 						if config.Personal.Email != "" {
 							<a href={ templ.SafeURL("mailto:" + config.Personal.Email) }>{ config.Personal.Email }</a>
 						}
-						if config.Personal.Phone != "" {
-							<span>{ config.Personal.Phone }</span>
-						}
 						if config.Personal.Location != "" {
 							<span>{ config.Personal.Location }</span>
 						}
@@ -321,7 +318,7 @@ templ experienceSection(experiences []Experience) {
 				<div class="item-header">
 					<div>
 						<span class="item-title">{ exp.Role }</span>
-						<span class="item-subtitle"> at { exp.Name }</span>
+						<span class="item-subtitle">at { exp.Name }</span>
 					</div>
 					<div class="item-meta">{ exp.Location } | { exp.Date }</div>
 				</div>
@@ -371,7 +368,8 @@ templ educationSection(education []Education) {
 					<span class="edu-school">{ edu.Name }</span>
 				</div>
 				<div class="edu-meta">
-					{ edu.Location }<br/>
+					{ edu.Location }
+					<br/>
 					{ edu.Date }
 				</div>
 			</div>
